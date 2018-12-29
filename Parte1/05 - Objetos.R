@@ -45,3 +45,4 @@ class(func1)
 objects()
 rm(array1,lista)
 objects()
+
