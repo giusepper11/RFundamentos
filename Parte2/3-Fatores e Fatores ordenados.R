@@ -76,5 +76,26 @@ table(o.set1)
 df = read.csv2('etnias.csv', sep=',')
 df
 
+# variaveis do tipo factor
 str(df)
 
+# Níveis dos fatores
+# Internamente, o R armazena valores inteiros e faz um mapeamento para as strings (em ordem alfabética)
+# e agrupa as estatísticas por níveis. Agora, se fizermos sumarização de estatísticas, é possível visualizar 
+# a contabilização de  para cada categoria
+levels(df$Etnia)
+summary(df$Etnia)
+
+#plot
+# agora se dizermos um plot, temos um boxplot para estas variaveis categóricas
+plot(df$Idade~df$Etnia, xlab = 'Etnia', ylab = 'Idade', main='Idade por Etnia')
+
+#Regressao
+summary(lm(Idade~Etnia, data=df))
+
+# Convertendo uma coluna em variavel categorica. Isso criara um fator não ordenado
+df
+str(df)
+df$Estado_Civil.cat = factor(df$Estado_Civil, labels = c('Solteiro','Casado','Divorciado'))
+df
+str(df)
