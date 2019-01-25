@@ -62,7 +62,7 @@ escola$Geografia
 escola$media = NA
 escola  
 
-escola$media = apply(escola[,c(2,3,4)],1,mean)  
+escola$media = apply(escola[,c(2,3,4)],1,mean)   # 3º parametro(1) diz q executa por linha
 escola  
 escola$media = round(escola$media)  
 escola  
@@ -84,7 +84,7 @@ tapply(escola$Matematica, escola2$Aluno, sum)
 # by
 ?by
 
-sqldf("select aluno, sum(Matematica), sum(Geografia), sum(Quimica) from escola2 group by semestre")
+sqldf("select  sum(Matematica), sum(Geografia), sum(Quimica) from escola2 group by semestre")
 by(escola2[,c(2,3,4)], escola2$Semestre, colSums)
 
 # lapply()
