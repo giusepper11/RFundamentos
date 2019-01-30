@@ -79,7 +79,7 @@ escola2 <- data.frame(Aluno = c('Alan', 'Alice', 'Alana', 'Alan', 'Alice', 'Alan
 
 escola2
 sqldf("select aluno, sum(Matematica), sum(Geografia), sum(Quimica) from escola2 group by aluno")
-tapply(escola$Matematica, escola2$Aluno, sum)
+tapply(escola2$Matematica, escola2$Aluno, sum)
 
 # by
 ?by
